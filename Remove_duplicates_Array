@@ -1,0 +1,67 @@
+Remove Duplicates in-place from Sorted Array
+Problem Statement: Given an integer array sorted in non-decreasing order, remove the duplicates in place such that each unique element appears only once. 
+The relative order of the elements should be kept the same.
+If there are k elements after removing the duplicates, then the first k elements of the array should hold the final result. It does not matter what you leave beyond the
+first k elements.
+Note: Return k after placing the final result in the first k slots of the array.
+SOLUTION 1-BRUTE FORCE APPROACH
+APPROACH:
+1.Declare Hashser as hashset do not duplicates
+2.put the array elements into hashset
+3.set the size in k
+4.Now put the all elements of set in  the array from starting
+5.return k
+
+package array;
+import java.util.*;
+public class removeduplicates {
+	public static void main(String[] args) {
+		int arr[]= {1,1,2,2,2,3,3};
+		int res=removeduplicate(arr);
+		System.out.println("After removing duplicates:");
+			for(int i=0;i<res;i++) {
+				System.out.print(arr[i] + " ");
+			}
+		}
+	public static int removeduplicate(int []arr) {
+	HashSet<Integer>set=new HashSet<>();
+	for(int i=0;i<arr.length;i++) {
+		set.add(arr[i]);
+	}
+		int k=set.size();
+		int j=0;
+		for(int x:set) {
+			arr[j++]=x;
+		}	
+	return k;
+}
+}
+
+
+SOLUTION 2-OPTIMAL APPROACH-Using Two pointers
+APPROACH:
+1.initialize i =0 initially
+2.run a for loop till arr of length(j)
+3.if(arr[i]!=arr[j], increase i and update arr[i]=arr[j]
+4.After completion of the loop return i+1, i.e size of the array of unique elements.
+package array;
+public class removeduplicates1 {
+	public static void main(String[] args) {
+		int arr[]= {1,1,2,2,2,3,3};
+		int res1=removeduplicate(arr);
+		System.out.println("After removing duplicates:");
+			for(int i=0;i<res1;i++) {
+				System.out.print(arr[i] + " ");
+			}
+	}
+	static int removeduplicate(int arr[]) {
+		int i=0;
+		for(int j=1;j<arr.length;j++) {
+			if(arr[i]!=arr[j]) {
+				i++;
+				arr[i]=arr[j];
+			}
+		}
+		return i+1;
+	}
+}
