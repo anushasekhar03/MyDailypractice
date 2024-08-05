@@ -1,0 +1,40 @@
+1.7. Problem Statement:
+
+You are given a function, void *ReplaceCharacter(Char str[], int n, char chl, char ch2);
+The function accepts a string 'str' of length n and two characters 'chl' and 'ch2' as its argument. Implement the function to modify and return the string 'str'
+in such a way that all occurrences of 'chl' in the original string are replaced by 'ch2' and all occurrences of 'ch2' in the original string are replaced by 'chl'.
+Assumption: String Contains only lower-case alphabetical letters.
+Note:
+Return null if the string is null.
+If both characters are not present in the string or both of them are the same, then return the string unchanged.
+Example:
+Input:
+Str: apples
+ch1:a
+ch2:p
+Output:
+paales
+Explanation: 'A' in the original string is replaced with 'p' and 'p' in the original string is replaced with 'a', thus output is paales.
+
+public class demo3 {
+        public static void main(String[] args) {
+            String str="apples";
+            char ch1='a';
+            char ch2='p';
+            replcechar(str,ch1,ch2);
+        }
+        public static void replcechar(String str,char ch1,char ch2){
+            char [] ch=str.toCharArray();
+            for(int i=0;i<ch.length;i++){
+                if(ch[i]==ch1){
+                    ch[i]=ch2;
+                }    
+            else if(ch[i]==ch[2]){
+                ch[i]=ch1;
+            }        
+        }
+        System.out.println(new String(ch));
+    }
+        
+    }
+    
